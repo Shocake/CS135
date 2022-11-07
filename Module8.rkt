@@ -114,12 +114,23 @@
 ;;   ? Less
 
 ;; Exercise 8
-;; (expand-each l1 l2) makes a list of: For each item in the first list,
-;; make a list that contains that item, followed by all the items in the second list.
+;; (expand-each L1 L2) makes a list of: For each item in L1,
+;; make a list that contains that item, followed by all the items in L2.
 ;; Examples:
+(check-expect (expand-each (list 12 13 'x)
+                           (list 42 "zorkmids" 'Q))
+              (list (list 12 42 "zorkmids" 'Q)
+                    (list 13 42 "zorkmids" 'Q)
+                    (list 'x 42 "zorkmids" 'Q)))
 
 ;; expand-each: (listof Any) (listof Any) -> (listof (listof Any))
-
+(define (expand-each L1 L2)
+  (cond
+    [(empty? L1) empty]
+    [else (append (list (cons (first L1) L2)) (expand-each (rest L1) L2))]
+    )
+  )
+    
 ;; Exercise 9
 ;; (vector-add lst1 lst2) adds the lst1 and lst2 as vectors.
 ;; Examples:
