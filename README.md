@@ -1,4 +1,4 @@
 # CS135
-CS135 at UWaterloo
+UWaterloo CS135
 
-My solutions to the exercises provided in the CS135 lecture notes.
+My solutions to the exercises provided as practice in the CS135 lecture notes.
